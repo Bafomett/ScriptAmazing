@@ -38,7 +38,7 @@ function howMuchBet() {
   var oldBal = repB * 1;
   var difBal = oldBal - newBal;
   var difBets = counter.currentCount;
-  var difBet = difBets - 1;
+  var difBet = difBets;
   if (difBet = 0) {
     $('#bet-input').val(20);
     $('#bet-btn-3x').click();
@@ -88,7 +88,7 @@ function makeCounter() {
   function counter() {
     return counter.currentCount++;
   };
-  counter.currentCount = 0;
+  counter.currentCount = -1;
   return counter;
 }
 var counter = makeCounter();
@@ -101,3 +101,5 @@ function makeCounter2() {
   return counter2;
 }
 var counter2 = makeCounter2();
+
+//with love by Bafomet
