@@ -31,7 +31,7 @@ function chkForTwoBlues() {
 
 function chkLastColor() {
   chkForTwoBlues();
-  if ((counter2.currentCount >= 2) || (counter.currentCount > 0)) {
+  if ((counter2.currentCount >= 2) || (counter.currentCount >= 0)) {
     var a = $('#balance').text();
     var repA = a.replace(",", "");
     var newBal = repA * 1;
