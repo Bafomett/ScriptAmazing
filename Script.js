@@ -1,3 +1,21 @@
+function makeCounter() {
+  function counter() {
+    return counter.currentCount++;
+  };
+  counter.currentCount = -1;
+  return counter;
+}
+var counter = makeCounter();
+
+function makeCounter2() {
+  function counter2() {
+    return counter2.currentCount++;
+  };
+  counter.currentCount = 0;
+  return counter2;
+}
+var counter2 = makeCounter2();
+
 var timerId = setTimeout(function tick() { //Таймер для постоянного срабатывания функции 
   chkLastColor();
   timerId = setTimeout(tick, 34800);
@@ -6,12 +24,14 @@ var timerId = setTimeout(function tick() { //Таймер для постоян�
 function chkForTwoBlues() {
   if (($('#wheel-timer').css('color') == 'rgb(69, 181, 218)') == true) {
     counter2();
-  } else {counter2.currentCount = 0}
+  } else {
+    counter2.currentCount = 0
+  }
 }
 
 function chkLastColor() {
   chkForTwoBlues();
-  if ((counter2.currentCount >= 2) || (counter.currentCount >0)) {
+  if ((counter2.currentCount >= 2) || (counter.currentCount > 0)) {
     var a = $('#balance').text();
     var repA = a.replace(",", "");
     var newBal = repA * 1;
@@ -19,7 +39,7 @@ function chkLastColor() {
     var repB = b.replace(",", "");
     var oldBal = repB * 1;
     if (oldBal <= newBal) {
-      counter.currentCount = 0;
+      counter.currentCount = -1;
       counter2.currentCount = 0;
     } else {
       counter();
@@ -84,22 +104,5 @@ function howMuchBet() {
   return bal;
 }
 
-function makeCounter() {
-  function counter() {
-    return counter.currentCount++;
-  };
-  counter.currentCount = -1;
-  return counter;
-}
-var counter = makeCounter();
-
-function makeCounter2() {
-  function counter2() {
-    return counter2.currentCount++;
-  };
-  counter.currentCount = 0;
-  return counter2;
-}
-var counter2 = makeCounter2();
 
 //with love by Bafomet
